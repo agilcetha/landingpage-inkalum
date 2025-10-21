@@ -25,7 +25,7 @@ export default function Navbar() {
           
         </Link>
 
-        {/* Menu Desktop */}
+        {/* Menu web */}
         <div className="hidden md:flex space-x-8 font-medium">
           <Link href="/" className="text-lg text-gray-900 border-b-3 border-transparent hover:border-[#1D0A8A] transition duration-300">
             Home
@@ -36,12 +36,9 @@ export default function Navbar() {
           <Link href="/about" className="text-lg  text-gray-900 border-b-3 border-transparent hover:border-[#1D0A8A] transition duration-300">
             Tentang Kami
           </Link>
-          {/* <Link href="/kontak" className="text-lg  text-gray-900 border-b-3 border-transparent hover:border-[#1D0A8A] transition duration-300">
-            Kontak
-          </Link> */}
+         
         </div>
 
-        {/* Tombol WhatsApp */}
         <div className="hidden md:block">
           <a
             href="https://wa.me/6281234567890"
@@ -53,7 +50,7 @@ export default function Navbar() {
           </a>
         </div>
 
-            {/* Tombol Hamburger (Mobile) */}
+            
             <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden focus:outline-none"
@@ -76,9 +73,6 @@ export default function Navbar() {
           </Link>
           <Link href="/about" className="block py-2 hover:text-blue-600">
             Tentang Kami
-          </Link>
-          <Link href="/kontak" className="block py-2 hover:text-blue-600">
-            Kontak
           </Link>
           <a
             href="https://wa.me/6285804700114"

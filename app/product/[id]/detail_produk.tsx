@@ -4,20 +4,18 @@ import { useParams } from "next/navigation"
 import Image from "next/image"
 import { useState } from "react"
 import { products } from "../../../data/data_produk"
-import { MessageCircle } from "lucide-react"
 import Breadcrumb from "@/components/Breadcrumb"
-
 
 export default function ProductDetailPage() {
   const params = useParams()
   const id = Number(params.id)
   const product = products.find((p) => p.id === id)
 
+  const [selectedImage, setSelectedImage] = useState(product?.images?.[0] || "")
+
   if (!product) {
     return <div className="p-10 text-center">Produk tidak ditemukan.</div>
   }
-
-  const [selectedImage, setSelectedImage] = useState(product.images[0])
 
   return (
     <section className="py-20">
@@ -57,29 +55,26 @@ export default function ProductDetailPage() {
           <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
           <p className="text-xl text-gray-700 mt-2">Rp.00-,</p>
 
-          
-
           <p className="text-gray-600 mt-4">
-            {
-              `The ${product.name} is the perfect product for your needs. Add a longer description here.`}
+            The {product.name} is the perfect product for your needs. Add a longer description here.
           </p>
 
-             <a
-              href={`https://wa.me/6285854493405?text=Halo, saya tertarik dengan produk ${encodeURIComponent(
-                product.name
-              )}. Bisa dibantu informasinya?`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 bg-gray-500 text-white px-6 py-3 rounded-md font-medium hover:bg-green-700 transition"    
-            >
-              <Image
-                src="/images/whatsapp-bulat.png"
-                alt="WhatsApp Logo"
-                width={24}
-                height={24}
-              />
-              Hubungi via WhatsApp
-            </a>
+          <a
+            href={`https://wa.me/6285854493405?text=Halo, saya tertarik dengan produk ${encodeURIComponent(
+              product.name
+            )}. Bisa dibantu informasinya?`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 bg-gray-500 text-white px-6 py-3 rounded-md font-medium hover:bg-green-700 transition"
+          >
+            <Image
+              src="/images/whatsapp-bulat.png"
+              alt="WhatsApp Logo"
+              width={24}
+              height={24}
+            />
+            Hubungi via WhatsApp
+          </a>
 
           {/* Accordion Detail */}
           <div className="mt-10 border-t divide-y text-sm">
@@ -97,16 +92,14 @@ export default function ProductDetailPage() {
             <details className="py-4">
               <summary className="cursor-pointer font-medium text-gray-800">Features</summary>
               <p className="mt-2 text-gray-600">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates numquam ducimus eos ab non ex dicta
-                laborum, nam obcaecati officia pariatur.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
             </details>
 
             <details className="py-4">
               <summary className="cursor-pointer font-medium text-gray-800">Specifications</summary>
               <p className="mt-2 text-gray-600">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam harum temporibus nulla suscipit veniam
-                ratione maiores.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
             </details>
           </div>

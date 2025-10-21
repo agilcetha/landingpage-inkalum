@@ -22,8 +22,6 @@ export default function ProductDetailPage() {
   return (
     <section className="py-20">
       <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
-        
-        {/* Left: Gambar Produk */}
         <div>
           <div className="rounded-lg overflow-hidden">
             <Image
@@ -34,8 +32,6 @@ export default function ProductDetailPage() {
               className="h-full w-full object-cover group-hover:opacity-75"
             />
           </div>
-
-          {/* Thumbnail */}
           <div className="flex gap-3 mt-4 flex-wrap">
             {product.images.map((img, idx) => (
               <button
@@ -57,7 +53,6 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
-        {/* Right: Detail Produk */}
         <div>
           <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
           <p className="text-xl text-gray-700 mt-2">Rp.00-,</p>
@@ -69,23 +64,6 @@ export default function ProductDetailPage() {
               `The ${product.name} is the perfect product for your needs. Add a longer description here.`}
           </p>
 
-          {/* Pilihan Warna */}
-          {product.colors?.length > 0 && (
-            <div className="mt-6">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">Available Colors</h3>
-              <div className="flex gap-3">
-                {product.colors.map((color, idx) => (
-                  <button
-                    key={idx}
-                    className="w-8 h-8 rounded-full border border-gray-300"
-                    style={{ backgroundColor: color }}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tombol */}
              <a
               href={`https://wa.me/6285854493405?text=Halo, saya tertarik dengan produk ${encodeURIComponent(
                 product.name

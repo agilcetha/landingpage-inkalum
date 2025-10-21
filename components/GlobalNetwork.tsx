@@ -1,6 +1,6 @@
 "use client"
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps"
-import Image from "next/image"
+
 
 
 

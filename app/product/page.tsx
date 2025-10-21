@@ -10,7 +10,7 @@ export default function ProductsPage() {
   return (
     <div className="bg-[url('/images/bg-abstrak.jpg')]  bg-center">
      
-      <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 py-20 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
 
         <h2 className="text-4xl font-bold text-[#1D0A8A] mb-8">Produk</h2>
 

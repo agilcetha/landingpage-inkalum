@@ -62,16 +62,28 @@ export default function Navbar() {
             )}
             </button>
         </div>
-      {/* Menu Mobile */}
+     {/* Menu Mobile */}
       {isOpen && (
         <div className="md:hidden bg-white px-6 py-4 shadow-md">
-          <Link href="/" className="block py-2 hover:text-blue-600">
+          <Link
+            href="/"
+            className="block py-2 hover:text-blue-600"
+            onClick={() => setIsOpen(false)}
+          >
             Home
           </Link>
-          <Link href="/product" className="block py-2 hover:text-blue-600">
+          <Link
+            href="/product"
+            className="block py-2 hover:text-blue-600"
+            onClick={() => setIsOpen(false)}
+          >
             Produk
           </Link>
-          <Link href="/about" className="block py-2 hover:text-blue-600">
+          <Link
+            href="/about"
+            className="block py-2 hover:text-blue-600"
+            onClick={() => setIsOpen(false)}
+          >
             Tentang Kami
           </Link>
           <a
@@ -79,11 +91,13 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className="block mt-3 bg-blue-600 text-white px-4 py-2 rounded-lg text-center hover:bg-blue-700 transition"
+            onClick={() => setIsOpen(false)}
           >
             Hubungi Kami
           </a>
         </div>
       )}
+
     </nav>
   );
 }

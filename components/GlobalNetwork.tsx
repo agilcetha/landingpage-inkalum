@@ -36,8 +36,8 @@ export default function GlobalNetwork() {
       <div className="max-w-5xl mx-auto">
         <ComposableMap projection="geoMercator" width={800} height={400}>
           <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
+            {({ geographies }: { geographies: any[] }) =>
+              geographies.map((geo: any) => (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
@@ -47,6 +47,7 @@ export default function GlobalNetwork() {
               ))
             }
           </Geographies>
+
 
           {locations.map((loc) => (
             <Marker key={loc.id} coordinates={loc.coordinates}>

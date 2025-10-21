@@ -76,7 +76,6 @@ export default function ProductDetailPage() {
             Hubungi via WhatsApp
           </a>
 
-          {/* Accordion Detail */}
           <div className="mt-10 border-t divide-y text-sm">
             <details className="py-4">
               <summary className="cursor-pointer font-medium text-gray-800">Details</summary>

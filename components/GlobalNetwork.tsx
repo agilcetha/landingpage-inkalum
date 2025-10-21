@@ -35,18 +35,20 @@ export default function GlobalNetwork() {
 
       <div className="max-w-5xl mx-auto">
         <ComposableMap projection="geoMercator" width={800} height={400}>
-          <Geographies geography={geoUrl}>
-            {({ geographies }: { geographies: any[] }) =>
-              geographies.map((geo: any) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill="#E5E7EB"
-                  stroke="#D1D5DB"
-                />
-              ))
-            }
-          </Geographies>
+         <Geographies geography={geoUrl}>
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+          {({ geographies }: { geographies: any[] }) =>
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            geographies.map((geo: any) => (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                fill="#E5E7EB"
+                stroke="#D1D5DB"
+              />
+            ))
+          }
+        </Geographies>
 
 
           {locations.map((loc) => (

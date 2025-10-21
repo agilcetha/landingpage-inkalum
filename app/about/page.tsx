@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function AboutPage() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-white to-purple-50 py-20 px-6 md:px-16">
@@ -14,20 +15,27 @@ export default function AboutPage() {
         </div>
 
         <div className="md:col-span-6 relative grid grid-cols-2 gap-4 md:gap-6">
-          <img
-            src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=60"
-            alt="Office interior"
+          <Image
+            src="/images/pabrik.jpg"
+            alt="Office"
+            width={800}
+            height={600}
             className="rounded-2xl shadow-xl object-cover w-full h-56 md:h-64 col-span-2 transform hover:scale-105 transition duration-500"
           />
 
-          <img
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=60"
-            alt="Team member"
+          <Image
+            src="/images/aluminium.jpg"
+            alt="Aluminium"
+            width={400}
+            height={400}
             className="rounded-2xl shadow-lg object-cover h-48 md:h-56 w-full translate-x-6 -translate-y-4 hover:scale-105 transition duration-500"
           />
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=60"
-            alt="Discussion"
+
+          <Image
+            src="/images/women.jpg"
+            alt="Women"
+            width={400}
+            height={400}
             className="rounded-2xl shadow-lg object-cover h-48 md:h-56 w-full -translate-x-4 translate-y-4 hover:scale-105 transition duration-500"
           />
         </div>

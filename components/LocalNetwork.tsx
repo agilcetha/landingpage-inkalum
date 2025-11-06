@@ -1,82 +1,80 @@
 "use client";
+
 import { useEffect } from "react";
-import L from "leaflet";
+import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 
-// URL icon mirip Google Maps
-const googlePin = L.icon({
-  iconUrl: "https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2_hdpi.png",
-  iconSize: [25, 41], // ukuran icon
-  iconAnchor: [12, 41], // posisi dasar pin
-  popupAnchor: [1, -34], // posisi popup relatif terhadap pin
-});
+// Dynamic import Leaflet supaya tidak jalan di server
+const loadLeaflet = async () => {
+  const L = await import("leaflet");
+  return L;
+};
 
 export default function LocalNetwork() {
   useEffect(() => {
-    // Hapus instance lama kalau sudah ada
-    const existingMap = L.DomUtil.get("indo-map");
-    if (existingMap && existingMap._leaflet_id) {
-      existingMap._leaflet_id = null;
-    }
+    if (typeof window === "undefined") return;
 
-    // Inisialisasi map
-    const map = L.map("indo-map", {
-      center: [-2.5, 118],
-      zoom: 5.1,
-      zoomControl: true,
+    let map: any;
+
+    loadLeaflet().then((L) => {
+      map = L.map("map", {
+        center: [-2.5489, 118.0149],
+        zoom: 5,
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
+
+      const icon = L.icon({
+        iconUrl: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [0, -30],
+      });
+
+      const cities = [
+        { name: "Jakarta", coords: [-6.2088, 106.8456] },
+        { name: "Surabaya", coords: [-7.2575, 112.7521] },
+        { name: "Medan", coords: [3.5952, 98.6722] },
+        { name: "Makassar", coords: [-5.1477, 119.4327] },
+        { name: "Denpasar", coords: [-8.65, 115.2167] },
+        { name: "Bandung", coords: [-6.9175, 107.6191] },
+        { name: "Semarang", coords: [-6.9667, 110.4167] },
+        { name: "Palembang", coords: [-2.9761, 104.7754] },
+      ];
+
+      cities.forEach((city) =>
+        L.marker(city.coords, { icon })
+          .bindPopup(`<b>${city.name}</b>`)
+          .addTo(map)
+      );
     });
 
-    // Tambahkan tile dari OpenStreetMap
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution:
-        '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-    }).addTo(map);
-
-    // Daftar kota besar di Indonesia
-    const cities = [
-      { name: "Jakarta", coords: [-6.2088, 106.8456] },
-      { name: "Bandung", coords: [-6.9175, 107.6191] },
-      { name: "Surabaya", coords: [-7.2575, 112.7521] },
-      { name: "Medan", coords: [3.5952, 98.6722] },
-      { name: "Makassar", coords: [-5.1477, 119.4327] },
-      { name: "Yogyakarta", coords: [-7.7956, 110.3695] },
-      { name: "Denpasar", coords: [-8.65, 115.2167] },
-      { name: "Palembang", coords: [-2.9909, 104.7566] },
-      { name: "Manado", coords: [1.4748, 124.8421] },
-      { name: "Balikpapan", coords: [-1.2675, 116.8289] },
-      { name: "Pontianak", coords: [0.022, 109.3333] },
-      { name: "Jayapura", coords: [-2.5916, 140.6689] },
-    ];
-
-    // Tambahkan marker gaya Google Maps untuk setiap kota
-    cities.forEach((city) => {
-      const marker = L.marker(city.coords, { icon: googlePin }).addTo(map);
-      marker.bindPopup(`<b>${city.name}</b>`);
-    });
-
-    // Cleanup saat komponen unmount
     return () => {
-      map.remove();
+      if (map) map.remove();
     };
   }, []);
 
   return (
-    <section className="relative bg-white py-16">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-900">
-          LOCAL <span className="text-[#240FA6]">NETWORK</span>
-        </h2>
-        <p className="text-gray-500 mt-2">
-          Jangkauan kami mencakup kota-kota besar di seluruh Indonesia.
-        </p>
-      </div>
+    <section className="py-16 bg-white">
+      <h2 className="text-center text-4xl font-bold mb-4 text-gray-900">
+        LOCAL <span className="text-[#240FA6]">NETWORK</span>
+      </h2>
+      <p className="text-center text-gray-500 mb-12">
+        Kota-kota besar di Indonesia dengan jaringan layanan kami.
+      </p>
 
-      <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+      <div className="max-w-6xl mx-auto">
         <div
-          id="indo-map"
-          className="w-full h-[500px] rounded-2xl"
-          style={{ zIndex: 1 }}
-        ></div>
+          id="map"
+          style={{
+            height: "600px",
+            width: "100%",
+            zIndex: 0, 
+          }}
+          className="mt-12 rounded-lg shadow-lg"
+        />
       </div>
     </section>
   );

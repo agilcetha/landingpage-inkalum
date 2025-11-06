@@ -18,7 +18,7 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <section className="py-20">
+    <section className="py-20 bg-white">
       <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
         <div>
           <div className="rounded-lg overflow-hidden">

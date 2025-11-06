@@ -64,7 +64,7 @@ export default function Navbar() {
         </div>
      {/* Menu Mobile */}
       {isOpen && (
-        <div className="md:hidden bg-white px-6 py-4 shadow-md">
+        <div className="md:hidden bg-white px-6 py-4 shadow-md text-gray-900">
           <Link
             href="/"
             className="block py-2 hover:text-blue-600"

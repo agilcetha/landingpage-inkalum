@@ -10,10 +10,10 @@ const products = [
 export default function BestProduct() {
   return (
     <section className="py-30 bg-[url('/images/bg-abstrak.jpg')]  bg-center">
-      <h2 className="text-center text-4xl font-bold mb-10">
+      <h2 className="text-center text-4xl font-bold mb-10 text-gray-900">
         BEST <span className="text-[#240FA6]">PRODUCT</span>
       </h2>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-900">
         {products.map((item) => (
           <div
             key={item.id}

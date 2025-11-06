@@ -25,7 +25,7 @@ const locations = [
 export default function GlobalNetwork() {
   return (
     <section className="py-16 bg-white">
-      <h2 className="text-center text-4xl font-bold mb-4">
+      <h2 className="text-center text-4xl font-bold mb-4 text-gray-900">
         GLOBAL <span className="text-[#240FA6]">NETWORK</span>
       </h2>
       <p className="text-center text-gray-500 mb-12">

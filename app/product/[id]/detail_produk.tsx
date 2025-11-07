@@ -17,40 +17,62 @@ export default function ProductDetailPage() {
     return <div className="p-10 text-center">Produk tidak ditemukan.</div>
   }
 
+  // Cek apakah file adalah video
+  const isVideo = (url: string) => url.endsWith(".mp4") || url.includes("streamable.com")
+
   return (
     <section className="py-20 bg-white">
       <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        {/* BAGIAN KIRI (GAMBAR / VIDEO) */}
         <div>
           <div className="rounded-lg overflow-hidden">
-            <Image
-              src={selectedImage}
-              alt={product.name}
-              width={600}
-              height={600}
-              className="h-full w-full object-cover group-hover:opacity-75"
-            />
+            {isVideo(selectedImage) ? (
+              <video
+                controls
+                className="w-full h-[400px] rounded-lg"
+                src={selectedImage}
+              />
+            ) : (
+              <Image
+                src={selectedImage}
+                alt={product.name}
+                width={600}
+                height={600}
+                className="h-full w-full object-cover group-hover:opacity-75"
+              />
+            )}
           </div>
+
+          {/* THUMBNAIL */}
           <div className="flex gap-3 mt-4 flex-wrap">
             {product.images.map((img, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedImage(img)}
-                className={`border rounded-md overflow-hidden w-20 h-20 ${
+                className={`border rounded-md overflow-hidden w-20 h-20 relative ${
                   selectedImage === img ? "ring-2 ring-indigo-500" : ""
                 }`}
               >
-                <Image
-                  src={img}
-                  alt={`${product.name} thumbnail ${idx + 1}`}
-                  width={80}
-                  height={80}
-                  className="object-cover w-full h-full"
-                />
+                {isVideo(img) ? (
+                  <div className="flex items-center justify-center bg-black text-white w-full h-full">
+                    ▶
+                  </div>
+                ) : (
+                  <Image
+                    src={img}
+                    alt={`${product.name} thumbnail ${idx + 1}`}
+                    width={80}
+                    height={80}
+                    className="object-cover w-full h-full"
+                  />
+                )}
               </button>
             ))}
           </div>
         </div>
 
+        {/* BAGIAN KANAN (DESKRIPSI PRODUK) */}
         <div>
           <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
           <p className="text-xl text-gray-700 mt-2">Rp.00-,</p>
@@ -76,6 +98,7 @@ export default function ProductDetailPage() {
             Hubungi via WhatsApp
           </a>
 
+          {/* DETAIL PRODUK */}
           <div className="mt-10 border-t divide-y text-sm">
             <details className="py-4">
               <summary className="cursor-pointer font-medium text-gray-800">Details</summary>

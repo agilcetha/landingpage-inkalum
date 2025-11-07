@@ -1,21 +1,23 @@
 // Gambar real di halaman produk
 export const products = [
-  {
-    id: 1,
-    name: "2 Leaves Sliding Windows",
-    images: [
-      "/produk/2-leaves-sliding-windows-real.jpg",
-      "/produk/2-leaves-sliding-windows.png",
-      "/produk/2-leaves-sliding-windows-real.jpg",
-    ],
-  },
+{
+  id: 1,
+  name: "2 Leaves Sliding Windows",
+  images: [
+    "/produk/2-leaves-sliding-windows-real.jpg",
+    "/produk/2-leaves-sliding-windows.png",
+    "https://6730q8c6w6.ucarecd.net/2b3c766b-af29-40ca-b8e7-f174d37d6a5e/YTDowncom_YouTube_upvcslidingwindow25trackGlassne_Media_lo91OqWVjGA_003_480p.mp4",
+  ],
+},
+
+
   {
     id: 2,
     name: "4 Leaves Sliding Windows",
     images: [
       "/produk/4-leaves-sliding-windows-real.jpg",
       "/produk/4-leaves-sliding-windows.png",
-      "/produk/4-leaves-sliding-windows-real.jpg"
+       "https://6730q8c6w6.ucarecd.net/2b3c766b-af29-40ca-b8e7-f174d37d6a5e/YTDowncom_YouTube_upvcslidingwindow25trackGlassne_Media_lo91OqWVjGA_003_480p.mp4"
 
 
     ],
@@ -26,7 +28,7 @@ export const products = [
     images: [
       "/produk/bedroom.png",
       "/produk/bedroom.png",
-      "/produk/bedroom.png"
+       "https://6730q8c6w6.ucarecd.net/2b3c766b-af29-40ca-b8e7-f174d37d6a5e/YTDowncom_YouTube_upvcslidingwindow25trackGlassne_Media_lo91OqWVjGA_003_480p.mp4"
     ],
   },
   {
@@ -35,7 +37,7 @@ export const products = [
     images: [
       "/produk/2-casement-windows-real.jpg",
       "/produk/2-casement-windows.png",
-      "/produk/2-casement-windows-real.jpg",
+       "https://6730q8c6w6.ucarecd.net/2b3c766b-af29-40ca-b8e7-f174d37d6a5e/YTDowncom_YouTube_upvcslidingwindow25trackGlassne_Media_lo91OqWVjGA_003_480p.mp4"
 
     ],
   },

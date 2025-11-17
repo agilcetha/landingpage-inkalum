@@ -3,8 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { products } from "../../data/data_produk"
-import { Images } from "lucide-react"
-import Breadcrumb from "@/components/Breadcrumb"
+
+
 
 export default function ProductsPage() {
   return (

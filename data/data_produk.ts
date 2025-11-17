@@ -1,4 +1,4 @@
-// Gambar real di halaman produk
+// gambar dan video detail produk
 export const products = [
 {
   id: 1,
@@ -47,7 +47,7 @@ export const products = [
     images: [
       "/produk/casement-windows-real.jpg",
       "/produk/casement-windows.png",
-      "/produk/casement-windows-real.jpg"
+      
 
     ],
   },

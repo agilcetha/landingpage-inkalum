@@ -34,7 +34,7 @@ export default function LocalNetwork() {
         popupAnchor: [0, -30],
       });
 
-      // Data lokasi
+      // Data lokasi showroom
       const cities = [
         {
           name: "Bluru Kidul, Kabupaten Sidoarjo, Jawa Timur",

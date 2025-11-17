@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 import Image from "next/image"
 import { useState } from "react"
 import { products } from "../../../data/data_produk"
-import Breadcrumb from "@/components/Breadcrumb"
+
 
 export default function ProductDetailPage() {
   const params = useParams()
@@ -23,8 +23,6 @@ export default function ProductDetailPage() {
   return (
     <section className="py-20 bg-white">
       <div className="py-10 max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
-        
-        {/* BAGIAN KIRI (GAMBAR / VIDEO) */}
         <div>
           <div className="rounded-lg overflow-hidden">
             {isVideo(selectedImage) ? (
@@ -44,7 +42,6 @@ export default function ProductDetailPage() {
             )}
           </div>
 
-          {/* THUMBNAIL */}
           <div className="flex gap-3 mt-4 flex-wrap">
             {product.images.map((img, idx) => (
               <button
@@ -82,7 +79,7 @@ export default function ProductDetailPage() {
           </p>
 
           <a
-            href={`https://wa.me/6285854493405?text=Halo, saya tertarik dengan produk ${encodeURIComponent(
+            href={`https://wa.me/6285804700114?text=Halo, saya tertarik dengan produk ${encodeURIComponent(
               product.name
             )}. Bisa dibantu informasinya?`}
             target="_blank"

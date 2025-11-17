@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import Hero from "../components/hero";
 import BestProduct from "@/components/bestproduct";
 import LocalNetwork from "@/components/LocalNetwork";
